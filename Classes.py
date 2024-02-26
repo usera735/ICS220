@@ -32,26 +32,13 @@ class BoardingPass:
         self.gate = gate
         self.departure_time = departure_time
 
-    def set_passenger(self, passenger):
-        self.passenger = passenger
-
-    def set_gate(self, gate):
-        self.gate = gate
-
-    def set_departure_time(self, departure_time):
-        self.departure_time = departure_time
-
-    def get_passenger(self):
-        return self.passenger
-
-    def get_gate(self):
-        return self.gate
-
-    def get_departure_time(self):
-        return self.departure_time
-
     def display_boarding_pass(self):
-        pass  # This function should display the boarding pass details.
+        print("Boarding Pass:")
+        print("Passenger Name:", self.passenger.get_name())
+        print("Seat Number:", self.passenger.get_seat_number())
+        print("Flight Number:", self.passenger.get_flight_number())
+        print("Gate:", self.gate)
+        print("Departure Time:", self.departure_time)
 
 
 class Flight:
@@ -91,3 +78,17 @@ class CheckInSystem:
 
     def issue_boarding_pass(self, passenger, flight):
         pass  # This function should issue a boarding pass for a passenger on a flight.
+
+
+if __name__ == "__main__":
+    passenger1 = Passenger("James Smith", "09A", "NA4321")
+    flight1 = Flight("NA4321", "New York JFK", "2")
+    boarding_pass1 = BoardingPass(passenger1, "03", "11:40")
+    check_in_system = CheckInSystem([flight1])
+
+    # Use object functions to populate and display boarding pass details
+    passenger1.set_name("John Doe")
+    passenger1.set_seat_number("05B")
+    passenger1.set_flight_number("NA1234")
+
+    boarding_pass1.display_boarding_pass()
